@@ -1,10 +1,13 @@
 <section class="base-section">
-  <mat-form-field appearance="outline">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-    <mat-label>Введите число</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
-    <mat-checkbox class="example-margin" [(ngModel)]="checked">чувствительность регистра поиска</mat-checkbox>
-  </mat-form-field>
+  <div>
+    <textarea placeholder="Comment..."></textarea>
+  </div>
+  <div class="checkbox">
+      <input class="base-section__checkbox" type="checkbox" id="register" name="register" value="green">
+      <label for="register">чувствительность регистра поиска</label>
+  </div>
+  <div class="base-section__buttons">
+    <button class="atuin-btn">Фильтр по длине слова</button>
+    <button class="atuin-btn">Фильтр по подстроке</button>
+  </div>
 </section>
