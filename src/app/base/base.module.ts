@@ -9,11 +9,11 @@ import { FilterPipe } from './pipe/filter.pipe';
   declarations: [BaseComponent, FilterPipe],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     BaseComponent,
-    HttpClientModule
+    HttpClientModule,
   ],
 })
 export class BaseModule { }

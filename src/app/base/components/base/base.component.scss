@@ -4,16 +4,15 @@
   width: 50%;
   height: auto;
   min-height: calc(100vh - 150px);
-  margin: 0  auto;
-  flex-wrap: wrap;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
-  background-color: #123456;
 
   .atuin-btn {
     display: inline-flex;
     margin: 10px;
     width: 250px;
+    padding: 10px 15px;
     text-decoration: none;
     border: 2px solid #BFE2FF;
     border-radius: 7px;
@@ -21,7 +20,6 @@
     overflow: hidden;
     font-size: 18px;
     line-height: 18px;
-    padding: 10px 15px;
     color: #FFF;
     font-weight: bold;
     background: #337AB7;
@@ -37,23 +35,13 @@
       color: #FFF;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, 0.3), transparent);
-      transition: left 0.7s;
-    }
-
     &:hover:before,
     &:active:before,
     &:focus:before {
       left: 100%;
     }
   }
+
   &__checkbox {
     position: absolute;
     z-index: -1;
@@ -110,11 +98,12 @@
   .checkbox {
     margin-bottom: 1em;
   }
+}
 
 label {
+  padding: 10px 15px;
   font-size: 18px;
   line-height: 18px;
-  padding: 10px 15px;
   font-weight: bold;
   color: #337AB7;
 }
@@ -129,11 +118,29 @@ textarea {
   border: 0;
   font-size: 18px;
   line-height: 18px;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.6);
+  overflow: hidden;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
-
+input[type=text] {
+  width: 100px;
+  padding: 12px 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  border: 2px solid #BFE2FF;
+  border-radius: 7px;
+  background-color: #337AB7;
+  color: white;
+  transition: width 0.4s ease-in-out;
+  outline: none;
 }
 
+input[type=text]:focus {
+  width: 250px;
+  border-color: #b3d7ff;
+}
 
-
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
