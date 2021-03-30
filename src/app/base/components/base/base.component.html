@@ -1,6 +1,10 @@
 <section class="base-section">
   <div class="center">
-    <textarea placeholder = "Result..."></textarea>
+    <div class="base-section__textarea">
+      <p *ngFor="let word of (results | filter: filterParams)"
+        [results] = "word">{{ word }}
+      </p>
+    </div>
   </div>
   <div class = "center">
     <label for = "valueUser">
@@ -12,18 +16,18 @@
       name = "userValue">
   </div>
   <div class="checkbox center">
-      <input
-        class = "base-section__checkbox"
-        type="checkbox"
-        name = "register"
-        id = "register"
-        [checked] = "isChecked"
-        (change) = onChangeRegister($event)>
-      <label for = "register">
-        чувствительность регистра поиска
-      </label>
+    <input
+      class = "base-section__checkbox"
+      type="checkbox"
+      name = "register"
+      id = "register"
+      [checked] = "isChecked"
+      (change) = onChangeRegister($event)>
+    <label for = "register">
+      чувствительность регистра поиска
+    </label>
   </div>
-  <div class="base-section__buttons">
+  <div class="base-section__buttons center">
     <button class="atuin-btn" (click)="filterByLenght()">
       Фильтр по длине слова
     </button>

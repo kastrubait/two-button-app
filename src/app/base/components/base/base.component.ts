@@ -6,7 +6,6 @@ import { DataService } from '../../services/data.service';
 import { MrsoftData } from '../../models/mrsof-data.model';
 import { FilterParams } from '../../models/filter-params.model';
 
-
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
@@ -20,7 +19,7 @@ export class BaseComponent implements OnDestroy {
     value: '',
     register: false
   };
-  result: string[] = [];
+  results: string[] = [];
   dataSubscription!: Subscription;
   error = false;
 
@@ -39,7 +38,6 @@ export class BaseComponent implements OnDestroy {
       this.filterParams.typeValue = 'number';
       this.filterParams.value = Number(this.inputValue);
       this.filterParams.register = this.isChecked;
-      console.log(this.inputValue, this.filterParams);
       this.getDataJson();
     } else {
       window.alert('Вероятно, выбрана не та кнопка?');
@@ -51,7 +49,6 @@ export class BaseComponent implements OnDestroy {
       this.filterParams.typeValue = 'string';
       this.filterParams.value = this.inputValue;
       this.filterParams.register = this.isChecked;
-      console.log(this.inputValue, this.filterParams);
       this.getDataJson();
     } else {
       window.alert('Вероятно, выбрана не та кнопка?');
@@ -66,16 +63,16 @@ export class BaseComponent implements OnDestroy {
   }
 
   getDataJson(): void {
+    this.results = [];
     this.dataSubscription = this.dataService.getData()
     .pipe(
       catchError((error) => {
-        this.result = [];
+        this.results = [];
         this.error = true;
         return EMPTY;
       })
     ).subscribe((results: MrsoftData): void => {
-      this.result = results.data;
-      console.log(this.result);
+      this.results = results.data;
     })
   }
 
